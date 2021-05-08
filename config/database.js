@@ -4,12 +4,12 @@ module.exports = ({ env }) => ({
     default: {
       connector: 'mongoose',
       settings: {
-        host: env('DATABASE_HOST', 'cluster0.zg7kg.mongodb.net'),
+        host: env('DATABASE_HOST', process.env.DB_HOST),
         srv: env.bool('DATABASE_SRV', true),
         port: env.int('DATABASE_PORT', 27017),
-        database: env('DATABASE_NAME', 'warpKingsMongoDbStrapi'),
-        username: env('DATABASE_USERNAME', 'WkAdmin'),
-        password: env('DATABASE_PASSWORD', 'zsmPQ@B$2HB%U0$'),
+        database: env('DATABASE_NAME', process.env.DB_NAME),
+        username: env('DATABASE_USERNAME', process.env.DB_USER),
+        password: env('DATABASE_PASSWORD', process.env.DB_PASS),
       },
       options: {
         authenticationDatabase: env('AUTHENTICATION_DATABASE', null),
